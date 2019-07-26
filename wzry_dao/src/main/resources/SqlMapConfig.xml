@@ -6,7 +6,5 @@
     <typeAliases>
         <package name="com.bbs.domain"/>
     </typeAliases>
-    <mappers>
 
-    </mappers>
 </configuration>
