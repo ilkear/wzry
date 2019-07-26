@@ -30,6 +30,7 @@
     <mvc:resources location="/img/" mapping="/img/**" />
     <mvc:resources location="/bootstrap/" mapping="/bootstrap/**" />
     <mvc:resources location="/plugins/" mapping="/plugins/**" />
+    <mvc:resources location="/jsp/" mapping="/jsp/**" />
 
     <!-- 开启对SpringMVC注解的支持 -->
     <mvc:annotation-driven />
