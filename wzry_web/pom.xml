@@ -13,4 +13,22 @@
   <artifactId>wzry_web</artifactId>
 
 
+  <build>
+    <plugins>
+      <!--tomcat插件-->
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <!-- tomcat7的插件， 不同tomcat版本这个也不一样 -->
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.1</version>
+        <configuration>
+          <!-- 通过maven tomcat7:run运行项目时，访问项目的端口号 -->
+          <port>8880</port>
+          <!-- 项目访问路径 -->
+          <path>/</path>
+          <uriEncoding>UTF-8</uriEncoding>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
