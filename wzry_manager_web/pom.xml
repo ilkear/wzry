@@ -30,7 +30,7 @@
           <!-- 通过maven tomcat7:run运行项目时，访问项目的端口号 -->
           <port>8881</port>
           <!-- 项目访问路径 -->
-          <path>/manager</path>
+          <path>/</path>
           <uriEncoding>UTF-8</uriEncoding>
         </configuration>
       </plugin>
