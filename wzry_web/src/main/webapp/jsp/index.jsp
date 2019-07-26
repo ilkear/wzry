@@ -74,6 +74,25 @@
             <!-- 左侧列表 -->
             <div class="list-view l">
                 <ul>
+                    <c:forEach items="${list}" var="article">
+                        <li class="clearfix ding">
+                            <div class="hm-index-title">
+                                <c:if test="${article.isTop == 1}">
+                                    <i class="set-to-top">顶</i>
+                                </c:if>
+                                <a href="article/getArticle.do">${article.title}</a>
+                            </div>
+                            <div class="hm-index-con">${article.content}</div>
+                            <div class="hm-index-info l">
+                                <span class="article-username">${article.senderName}</span>
+                                <span class="post-time">${article.sendTime}</span>
+                            </div>
+                            <div class="hm-index-fun r">
+                                <span class="icon-like"><i></i>1</span>
+                                <span class="icon-talk"><i></i>0</span>
+                            </div>
+                        </li>
+                    </c:forEach>
                     <li class="clearfix ding">
                         <div class="hm-index-title">
                             <i class="set-to-top">顶</i> <a href="article/getArticle.do">求官方出艾琳英雄活动</a>
