@@ -14,10 +14,10 @@ import java.util.List;
 @RequestMapping("/article")
 public class ArticleController {
 
-    @RequestMapping("/getArticleList.do")
-    public ModelAndView getArticleList(){
+    @RequestMapping("/getArticle.do")
+    public ModelAndView getArticle(){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("index");
+        mv.setViewName("getArticle");
         return mv;
     }
 }
