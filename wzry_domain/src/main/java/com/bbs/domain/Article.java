@@ -6,7 +6,10 @@ import java.util.Date;
  * @author : Xiaos.Lyn
  * @date : 2019/7/26
  */
-public class article {
+public class Article {
+
+    //帖子编号
+    Integer articleId;
     //标题
     String title;
     //内容
@@ -27,6 +30,14 @@ public class article {
     Integer zoneId;
     //举报状态
     Integer isReport;
+
+    public Integer getArticleId() {
+        return articleId;
+    }
+
+    public void setArticleId(Integer articleId) {
+        this.articleId = articleId;
+    }
 
     public String getTitle() {
         return title;
