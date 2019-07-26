@@ -6,6 +6,5 @@
   <welcome-file-list>
     <welcome-file>/jsp/login.jsp</welcome-file>
   </welcome-file-list>
-
- 
+  
 </web-app>
