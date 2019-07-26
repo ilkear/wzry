@@ -28,7 +28,7 @@
     <!-- 设置静态资源不过滤 -->
     <mvc:resources location="/fonts/" mapping="/fonts/**" />
     <mvc:resources location="/img/" mapping="/img/**" />
-    <mvc:resources location="/bootstrap" mapping="/bootstrap/**" />
+    <mvc:resources location="/bootstrap/" mapping="/bootstrap/**" />
     <mvc:resources location="/plugins/" mapping="/plugins/**" />
 
     <!-- 开启对SpringMVC注解的支持 -->
