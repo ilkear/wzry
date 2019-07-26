@@ -51,4 +51,6 @@ public class Zoneapply {
     public void setStatus(Integer status) {
         this.status = status;
     }
+
+
 }
