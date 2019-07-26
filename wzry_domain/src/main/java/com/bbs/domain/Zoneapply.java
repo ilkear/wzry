@@ -52,4 +52,5 @@ public class Zoneapply {
         this.status = status;
     }
 
+
 }
