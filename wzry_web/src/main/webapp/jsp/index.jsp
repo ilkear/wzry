@@ -14,6 +14,28 @@
 </head>
 <body>
 
+<script>
+    $(function () {
+        var user = null;
+        var userName = "admin";
+        $(".zone_id").val(1);
+        $(".user_name").val(userName);
+
+        $("#ft").click(function () {
+            if(user==null){
+                //可以发帖
+                // alert($("#formx").serialize())
+                $.post("/comment/posted.do",$("#formx").serialize())
+                location.href="${pageContext.request.contextPath}/index.jsp"
+            }else {
+                //不可以发帖
+                alert("未登入，请先登入")
+            }
+        })
+
+    })
+
+</script>
 <!-- 头部 -->
 <jsp:include page="common/header.jsp"/>
 
@@ -150,25 +172,28 @@
     <a href="#" class="goTop"><i></i><span>返回<br/>顶部</span></a>
 </div>
 
+
 <!-- 发帖弹出框 -->
-<form action="" method="post">
+<form   method="post" id="formx">
     <div class="pop-box ft-box">
         <div class="mask"></div>
         <div class="win">
-            <div class="win_hd">
-                <h4 class="l">主题帖</h4><span class="close r">&times;</span>
-            </div>
-            <div class="win_bd">
-                <div class="win_bd_t">
-                    <input type="text" id="title" name="title" placeholder="帖子标题"/>
+                <div class="win_hd">
+                    <h4 class="l">主题帖</h4><span class="close r">&times;</span>
                 </div>
-                <div class="win_bd_b">
-                    <textarea id="content" name="content" placeholder="正文"></textarea>
+                <div class="win_bd">
+                    <div class="win_bd_t">
+                        <input type="text" id="title" name="title" placeholder="帖子标题"/>
+                    </div>
+                    <div class="win_bd_b">
+                        <textarea id="content" name="content" placeholder="正文"></textarea>
+                    </div>
+                    <input type="hidden" name="senderName" class="user_name">
+                    <input type="hidden" name="zoneId" class="zone_id">
                 </div>
-            </div>
-            <div class="win_ft">
+                <div class="win_ft">
                 <div class="win_ft_in">
-                    <input type="submit" class="btn" value="发表"/>
+                    <input type="submit" class="btn" value="发表" id="ft"/>
                 </div>
             </div>
         </div>

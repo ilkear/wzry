@@ -1,5 +1,5 @@
 package com.bbs.dao;
-
+import com.bbs.domain.Article;
 import com.bbs.domain.Comment;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -7,7 +7,6 @@ import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
 /**
  * @author : Xiaos.Lyn
  * @date : 2019/7/26
@@ -24,5 +23,6 @@ public interface CommentDao {
     @Select("select count(articleId) from bbs_article_table where senderName=${userName}")
     Integer getUserSun(@Param("userName") String userName);
 
-
+    @Insert("insert into bbs_article_table(title,content,senderName,zoneId) values(#{title},#{content},#{senderName},#{zoneId})")
+    void addPosted(Article article);
 }

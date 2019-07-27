@@ -113,15 +113,18 @@
                                 </div>
                                 <div class="floor-ans">
                                     <ul>
-
-                                        <!-- 回复部分,楼中楼 -->
-                                        <li class="clearfix">
-                                            <div class="floor-ans-pho l"><img src="images/default.png"/></div>
-                                            <div class="floor-ans-con l">
-                                                <span class="name">张无忌</span>：顶顶顶！
-                                                <span class="ans-time">2017-05-24 10:11:00</span>
-                                            </div>
-                                        </li>
+                                        <c:forEach items="${comm.replyList}" var="reply">
+                                            <!-- 回复部分,楼中楼 -->
+                                            <li class="clearfix">
+                                                <div class="floor-ans-pho l">
+                                                    <img src="${pageContext.request.contextPath}/images/default.png"/></div>
+                                                <div class="floor-ans-con l">
+                                                    <span class="name">${reply.replyUserName}</span>：
+                                                    ${reply.replyContent}
+                                                    <span class="ans-time">${reply.replyTime}</span>
+                                                </div>
+                                            </li>
+                                        </c:forEach>
                                     </ul>
                                 </div>
                                 <span class="icon-feedback">
