@@ -1,6 +1,5 @@
 package com.bbs.controller;
 
-import com.bbs.dao.CommentDao;
 import com.bbs.domain.Article;
 import com.bbs.domain.Comment;
 import com.bbs.service.CommentService;
@@ -38,7 +37,7 @@ public class CommentController {
     @RequestMapping("/add.do")
     public String add(Comment c) {
         c.setCommentTime(new Date());
-        service.addComment(c);
+        commentService.addComment(c);
 
         return "redirect:/index.jsp";
     }

@@ -1,8 +1,8 @@
 package com.bbs.service.Impl;
 
 import com.bbs.dao.CommentDao;
-import com.bbs.domain.Comment;
 import com.bbs.domain.Article;
+import com.bbs.domain.Comment;
 import com.bbs.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,16 +22,10 @@ public class CommentServiceImpl implements CommentService {
         commentDao.addComment(c);
     }
 
-    /**
-     * 申请高级用户
-     * @param userName
-     * @return
-     */
     @Override
     public Integer getUserSun(String userName) {
         return commentDao.getUserSun(userName);
     }
-
     /**
      * 发帖
      * @param article
