@@ -11,15 +11,15 @@
     <div class="hm-inner clearfix">
         <div class="hm-inner-l l"></div>
         <div class="hm-inner-r r">
-            <c:if test="${empty user}">
+            <c:if test="${empty sessionScope.user}">
                 <div class="box">
-                    <a href="javascript:;" id="login" class="to-login">【游客登录】</a>
+                    <a href="javascript:void(0);" id="login" class="to-login">【游客登录】</a>
                     <a href="register.do">【新用户注册】</a>
                     <div id="dialogBg"></div>
                     <div id="dialog" class="animated">
                         <img class="dialogIco" width="50" height="40" src="${pageContext.request.contextPath}/images/ico.png"/>
                         <div class="dialogTop" style="height:25px;">
-                            <a href="javascript:;" class="closeDialogBtn">关闭</a>
+                            <a href="javascript:void(0);" class="closeDialogBtn">关闭</a>
                         </div>
                         <form action="${pageContext.request.contextPath}/user/login.do" method="post">
                             <ul class="editInfos">
@@ -31,8 +31,8 @@
                     </div>
                 </div>
             </c:if>
-            <c:if test="${!empty user}">
-                欢迎您，${user.userName}
+            <c:if test="${not empty sessionScope.user}">
+                欢迎您，${sessionScope.user.userName}
             </c:if>
         </div>
     </div>

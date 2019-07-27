@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * @author : Xiaos.Lyn
  * @date : 2019/7/27
  */
-@SessionAttributes
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -21,19 +22,13 @@ public class UserController {
     UserService userService;
 
     @RequestMapping("/login.do")
-    public ModelAndView login(User user){
-        ModelAndView mv = new ModelAndView();
+    public String login(User user, HttpSession session) {
 
         User u = userService.findUserByUsername(user.getUserName());
-        if(u==null || u.getUserPass().equals(user.getUserPass())){
-            //找不到或者密码不正确,滚回主页
-            mv.setViewName("index");
-            return mv;
-        }else {
-            mv.addObject("user",u);
+        if (u != null && u.getUserPass().equals(user.getUserPass())) {
+            session.setAttribute("user",u);
         }
-        mv.setViewName("redirect:/index.jsp");
-        return mv;
+        return "redirect:/index.jsp";
     }
 
 }
