@@ -42,8 +42,11 @@
 <body>
 
 <table class="table table-bordered">
+    <div style="text-align: center">是否需要添加敏感词？
+        <input type="text">
+        <input type="submit" value="添加">
+    </div>
 
-    <caption><h3>敏感词</h3></caption>
     <tr>
         <td>序号</td>
         <td>敏感词</td>
@@ -56,14 +59,10 @@
             <td>${w.wordId }</td>
             <td>${w.word }</td>
             <td>${w.statusStr }</td>
-            <td>${w.statusUse }</td>
+            <td><a>${w.statusUse }</a></td>
         </tr>
     </c:forEach>
 </table>
-<div>
-    <input type="text">
-    <input type="submit" value="添加">
-</div>
 
 
 </body>
