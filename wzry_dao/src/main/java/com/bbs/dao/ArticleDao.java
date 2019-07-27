@@ -34,4 +34,30 @@ public interface ArticleDao {
 
     @Select("SELECT * FROM `bbs_article_table`")
     public List<Article> findByPage();
+
+    /**
+     *发帖总数
+     * @return
+     */
+    Integer getTotalCount();
+
+    /**
+     * 今日发帖总数
+     * @return
+     */
+    Integer getTodayCount();
+
+    /**
+     * 查询贴数
+     * @return
+     */
+    @Select("select count(*) from `bbs_article_table`")
+    Integer findArticleCount();
+
+    /**
+     *  查询今日贴数
+     */
+    @Select("select count(*) from `bbs_article_table` where sendTime >= #{date}")
+    Integer findTodayCount(String date) throws Exception;
+
 }

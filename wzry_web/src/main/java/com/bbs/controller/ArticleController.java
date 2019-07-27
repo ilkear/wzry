@@ -2,11 +2,16 @@ package com.bbs.controller;
 
 import com.bbs.domain.Article;
 import com.bbs.service.ArticleService;
+import com.bbs.service.Impl.ArticleServiceImpl;
+import com.bbs.utils.DateUtils;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -27,6 +32,15 @@ public class ArticleController {
     public ModelAndView getArticleList(){
         ModelAndView mv = new ModelAndView();
         List<Article> list = service.getArticleList();
+        Integer total = service.findArticleCount();
+
+        String time = DateUtils.date2String(new Date(), "yyyy-MM-dd");
+
+        Integer todayCount = service.findTodayCount(time);
+
+        mv.addObject("today",todayCount);
+
+        mv.addObject("total",total);
         mv.addObject("list",list);
         mv.setViewName("index");
         return mv;
