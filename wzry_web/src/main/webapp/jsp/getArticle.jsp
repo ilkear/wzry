@@ -138,20 +138,27 @@
         <!--发表评论-->
         <div class="detail-to-comment">
             <div class="tit"><a name="comment">发表评论</a></div>
+            <c:if test="${ sessionScope.user}">
+                <div class="con">您没有登录论坛，请登录后再进行回复</div>
+            </c:if>
             <!-- 未登录时候显示 <div class="con">您没有登录论坛，请登录后再进行回复</div>-->
+            <c:if test="${empty sessionScope.user}">
+                <!-- 登录后显示评论输入框-->
+                <form action="${pageContext.request.contextPath}/comment/add.do" method="post">
+                    <div class="con con-loged">
+                        <input type="hidden" name="articleId" value="${article.articleId}">
+                        <input type="hidden" name="commentUserName" value="lyn">
+                        <div class="con-t">
+                            <textarea id="content" name="commentContent" placeholder="请在此输入您要回复的信息"></textarea>
+                        </div>
+                        <div class="con-b">
+                            <input type="submit" class="btn"/>
+                            <span class="num">不能超过5000字</span>
+                        </div>
+                    </div>
+                </form>
+            </c:if>
 
-            <!-- 登录后显示评论输入框-->
-            <form action="#" method="post">
-                <div class="con con-loged">
-                    <div class="con-t">
-                        <textarea id="content" name="commentContent" placeholder="请在此输入您要回复的信息"></textarea>
-                    </div>
-                    <div class="con-b">
-                        <input type="submit" class="btn"/>
-                        <span class="num">不能超过5000字</span>
-                    </div>
-                </div>
-            </form>
         </div>
     </div>
 </div>

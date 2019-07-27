@@ -21,4 +21,9 @@ public interface ArticleService {
      * @return
      */
     public Article getArticle(Integer articleId);
+    /**
+     * 查询贴
+     * @return
+     */
+    public List<Article> findByPage();
 }

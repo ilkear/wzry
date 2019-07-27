@@ -25,4 +25,13 @@ public interface ArticleDao {
      * @return
      */
     public Article getArticle(Integer articleId);
+
+
+    /**
+     * 查询贴所有
+     * @return
+     */
+
+    @Select("SELECT * FROM `bbs_article_table`")
+    public List<Article> findByPage();
 }

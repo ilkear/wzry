@@ -28,7 +28,7 @@
     <div class="hm-inner clearfix">
         <div class="hm-header-t clearfix">
             <h1 class="logo l">
-                <a href="javascript:;"><img src="images/logo.png" alt=""/></a>
+                <a href="javascript:;"><img src="images/logo.png" height="64" width="168" alt=""/></a>
             </h1>
             <div class="search-box l">
                 <form action="javascript:;">
@@ -39,62 +39,72 @@
         </div>
         <div class="hm-header-b">
             <i class="hm-ico-home"></i>
-            <a href="index.do">首页</a><span>></span>修改密码
+            <a href="index.do">首页</a><span>></span>个人信息
         </div>
     </div>
 </div>
 
 
-<!--修改密码-->
+
 <div class="hm-body hm-body-bgc">
     <div class="hm-inner">
         <div class="user-info clearfix">
             <div class="user-info-t" style="height:20px;"></div>
+
+            <!--左侧用户名，头像-->
             <div class="user-info-l l">
                 <div class="user-info-l-t">
-                    <img src="images/default.png" alt=""/>
+                    <img src="images/default.png"/>
                     <div class="username">张无忌</div>
                 </div>
                 <ul class="user-info-l-b">
-                    <li><i class="info-icon"></i>我的资料</li>
-                    <li class="cur"><i class="safe-icon"></i>修改密码</li>
+                    <li class="cur"><i class="info-icon"></i>我的资料</li>
+                    <li><i class="safe-icon"></i>修改密码</li>
                 </ul>
             </div>
 
 
+            <!--右侧用户信息-->
             <div class="user-info-r r">
                 <ul class="clearfix hd">
                     <li><a href="/jsp/userInfo.jsp">个人信息</a></li>
-                    <li class="cur"><a href="/jsp/userPwd.jsp">修改密码</a></li>
+                    <li><a href="/jsp/userPwd.jsp">修改密码</a></li>
                     <li><a href="/comment/publish.do?userName='admin'">申请高级权限</a></li>
-                    <li><a href="/jsp/userPlate.jsp">板块申请</a></li>
+                    <li class="cur"><a href="/jsp/userPlate.jsp">板块申请</a></li>
                 </ul>
-                <form action="#" method="post">
-                  <ul class="bd">
-                    <li class="clearfix">
-                        <div class="info-l"><i class="red">*</i>旧密码：</div>
-                        <div class="info-r"><input type="password" name="oldPassword" class="txt"/></div>
-                    </li>
-                    <li class="clearfix">
-                        <div class="info-l"><i class="red">*</i>新密码：</div>
-                        <div class="info-r"><input type="password" name="newPassword" class="txt"/></div>
-                    </li>
-                    <li class="clearfix">
-                        <div class="info-l"></div>
-                        <div class="info-r">
-						  <input type="submit" class="btn" value="保存"/>
-						  <span style="color:red;">修改成功！</span>
-						</div>
-                    </li>
-                  </ul>
+
+
+                <form action="#" method="post" enctype="multipart/form-data">
+                    <ul class="bd">
+                        <li class="clearfix">
+                            <div class="info-l"><i class="red"></i>板块名称：</div>
+                            <div class="info-r"><input type="text" class="txt" value="" readonly="readonly"/></div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="info-l">申请理由：</div>
+                            <div class="info-r"><input type="text" name="email" class="txt" value=""/></div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="info-l"></div>
+                            <div class="info-r">
+                                <input type="submit" class="btn" value="申请"/>
+                            </div>
+                        </li>
+                    </ul>
                 </form>
+
+
             </div>
+
+
         </div>
     </div>
 </div>
 
+
 <!-- 底部 -->
 <jsp:include page="common/footer.jsp"/>
+
 
 
 </body>

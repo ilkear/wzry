@@ -67,8 +67,10 @@
             <!--右侧用户信息-->
             <div class="user-info-r r">
                 <ul class="clearfix hd">
-                    <li class="cur"><a href="getUser.do?method=userInfo">个人信息</a></li>
-                    <li><a href="getUser.do?method=userPwd">修改密码</a></li>
+                    <li class="cur"><a href="/jsp/userInfo.jsp">个人信息</a></li>
+                    <li><a href="/jsp/userPwd.jsp">修改密码</a></li>
+                    <li><a href="/comment/publish.do?userName='admin'">申请高级权限</a></li>
+                    <li><a href="/jsp/userPlate.jsp">板块申请</a></li>
                 </ul>
 
 
