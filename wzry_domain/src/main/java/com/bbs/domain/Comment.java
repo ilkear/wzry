@@ -1,6 +1,7 @@
 package com.bbs.domain;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author : Xiaos.Lyn
@@ -19,6 +20,16 @@ public class Comment {
     Integer commentStatus;
     //帖子编号
     Integer articleId;
+    //回复（楼中楼）
+    List<Reply> replyList;
+
+    public List<Reply> getReplyList() {
+        return replyList;
+    }
+
+    public void setReplyList(List<Reply> replyList) {
+        this.replyList = replyList;
+    }
 
     public Integer getCommentId() {
         return commentId;
