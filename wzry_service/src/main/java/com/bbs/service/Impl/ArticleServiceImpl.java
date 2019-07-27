@@ -24,4 +24,15 @@ public class ArticleServiceImpl implements ArticleService {
         System.out.println(articleDao);
         return articleDao.getArticleList();
     }
+
+    @Override
+    public Article getArticle(Integer articleId) {
+
+        return articleDao.getArticle(articleId);
+    }
+
+    @Override
+    public List<Article> findByPage() {
+        return articleDao.findByPage();
+    }
 }

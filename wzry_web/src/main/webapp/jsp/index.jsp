@@ -79,7 +79,7 @@
                             <li class="clearfix">
                             <div class="hm-index-title">
                         </c:if>
-                        <a href="article/getArticle.do?articleId=${article.articleId}">
+                        <a href="${pageContext.request.contextPath}/article/getArticle.do?articleId=${article.articleId}">
                                 ${article.title}
                         </a>
                         </div>
@@ -146,7 +146,7 @@
 
 <!-- 右边发帖，回顶部 -->
 <div class="fixedBar" id="j_fixedBar">
-    <a id="newTopicBtn" href="javascript:;" class="newTopic"><span></span>发帖</a>
+    <a id="newTopicBtn" href="jvascript:a;" class="newTopic"><span></span>发帖</a>
     <a href="#" class="goTop"><i></i><span>返回<br/>顶部</span></a>
 </div>
 
