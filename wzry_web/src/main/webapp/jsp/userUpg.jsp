@@ -16,7 +16,25 @@
     </style>
 </head>
 <body>
+<style>
+    .abc{
+        color: red;
+    }
+</style>
 
+<script>
+
+    $(function () {
+        var sun = ${publish}
+        $(".btn").click(function (){
+            if(sun>=5){
+                alert("申请成功")
+            }else {
+                alert(sun+"发帖数不足，请继续发帖！")
+            }
+        })
+    })
+</script>
 
 <!-- 头部 -->
 <jsp:include page="common/header.jsp" />
@@ -58,6 +76,7 @@
                 <ul class="user-info-l-b">
                     <li><i class="info-icon"></i>我的资料</li>
                     <li class="cur"><i class="safe-icon"></i>修改密码</li>
+
                 </ul>
             </div>
 
@@ -65,28 +84,37 @@
             <div class="user-info-r r">
                 <ul class="clearfix hd">
                     <li><a href="/jsp/userInfo.jsp">个人信息</a></li>
-                    <li class="cur"><a href="/jsp/userPwd.jsp">修改密码</a></li>
-                    <li><a href="/comment/publish.do?userName='admin'">申请高级权限</a></li>
+                    <li><a href="/jsp/userPwd.jsp">修改密码</a></li>
+                    <li class="cur"><a href="/comment/publish.do?userName='admin'">申请高级权限</a></li>
                     <li><a href="/jsp/userPlate.jsp">板块申请</a></li>
                 </ul>
                 <form action="#" method="post">
-                  <ul class="bd">
-                    <li class="clearfix">
-                        <div class="info-l"><i class="red">*</i>旧密码：</div>
-                        <div class="info-r"><input type="password" name="oldPassword" class="txt"/></div>
-                    </li>
-                    <li class="clearfix">
-                        <div class="info-l"><i class="red">*</i>新密码：</div>
-                        <div class="info-r"><input type="password" name="newPassword" class="txt"/></div>
-                    </li>
-                    <li class="clearfix">
-                        <div class="info-l"></div>
-                        <div class="info-r">
-						  <input type="submit" class="btn" value="保存"/>
-						  <span style="color:red;">修改成功！</span>
-						</div>
-                    </li>
-                  </ul>
+                        <ul>
+                            <li>
+                                <div>
+                                    <font color="red">高级特权：</font>
+                                    <font >开辟新板块</font>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <font color="red">申请条件:</font>
+                                    <font > 发帖数≥5</font>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <font color="red">当前贴数: </font><font>${publish}</font>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="info-l"></div>
+                                <div class="info-r">
+                                    <input type="button" class="btn"  value="申请" name="btname"/>
+                                </div>
+                            </li>
+                        </ul>
+
                 </form>
             </div>
         </div>

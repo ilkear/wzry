@@ -12,13 +12,7 @@
   <artifactId>wzry_manager_web</artifactId>
 
 
-  <dependencies>
-    <dependency>
-      <groupId>cn.makedream</groupId>
-      <artifactId>wzry_service</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency>
-  </dependencies>
+
   <build>
     <plugins>
       <plugin>
