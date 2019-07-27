@@ -14,7 +14,6 @@ import java.util.List;
 @Repository
 public interface CommentDao {
 
-    @Select("SELECT * FROM `bbs_comment_table` WHERE `articleId` = #{articleId}")
     List<Comment> getCommentByArticleId(Integer articleId);
 
     @Insert("INSERT INTO `bbs_comment_table` VALUES(NULL,#{commentContent},#{commentTime},#{commentUserName},0,#{articleId})")
