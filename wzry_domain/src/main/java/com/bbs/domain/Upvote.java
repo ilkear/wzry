@@ -36,4 +36,6 @@ public class Upvote {
     public void setIsUpvote(Integer isUpvote) {
         this.isUpvote = isUpvote;
     }
+
+
 }

@@ -12,6 +12,13 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/hm-bbs.js"></script>
 </head>
+<%--今日贴数,总贴数--%>
+
+<script>
+
+
+</script>
+
 <body>
 
 <script>
@@ -40,6 +47,7 @@
 <jsp:include page="common/header.jsp"/>
 
 
+
 <!-- 主体部分 -->
 <div class="hm-header"></div>
 <div class="hm-body hm-body-bgc">
@@ -55,8 +63,8 @@
             <div class="hm-bbs-info-in l" style="margin-left:30px;">
                 <div class="t clearfix"><h2 class="l">王者荣耀</h2></div>
                 <p>
-                    <span>今日帖子<strong>99</strong></span>
-                    <span>全部帖子<strong>250</strong></span>
+                    <span id="todayCount">今日帖数:${today}</span>
+                    <span id="totalCount">总帖数:${total}</span>
                 </p>
             </div>
             <div class="search-box l">
@@ -127,7 +135,7 @@
                                 class="post-time">2017-05-24 09:10:00</span>
                         </div>
                         <div class="hm-index-fun r">
-                            <span class="icon-like"><i></i>3</span>
+                            <span class="icon-like"><i></i>${article.upvotecount}</span>
                             <span class="icon-talk"><i></i>10</span>
                         </div>
                     </li>

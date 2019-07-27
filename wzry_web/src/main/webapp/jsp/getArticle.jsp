@@ -35,11 +35,11 @@
                 <div class="t clearfix">
                     <h2 class="l">求官方出艾琳英雄活动</h2>
                     <div class="hm-detail-fun l">
-					     <span class="icon-like">
-					         <a href="#"><i></i>3</a>
+					     <span class="icon-like" id="upvoteCount">
+					         <a href="#"><i></i>${article.upvoteCount}</a>
 					     </span>
                         <span class="icon-talk">
-						     <i></i>10
+						     <i></i>0
 						</span>
                     </div>
                 </div>
@@ -219,5 +219,6 @@ function showDialog(num, commentId) {
     $('.pop-box').css('display', 'block');
     $("#floorSpan").html(num);
 }
+
 </script>
 </html>
