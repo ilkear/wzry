@@ -21,7 +21,6 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public List<Article> getArticleList(){
-        System.out.println(articleDao);
         return articleDao.getArticleList();
     }
 
