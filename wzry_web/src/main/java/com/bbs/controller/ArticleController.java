@@ -38,9 +38,11 @@ public class ArticleController {
      * @return
      */
     @RequestMapping("/getArticle.do")
-    public ModelAndView getArticle(){
+    public ModelAndView getArticle(Integer articleId){
         ModelAndView mv = new ModelAndView();
+        Article article = service.getArticle(articleId);
         mv.setViewName("getArticle");
+        mv.addObject("article",article);
         return mv;
     }
 }

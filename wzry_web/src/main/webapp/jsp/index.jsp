@@ -79,7 +79,7 @@
                             <li class="clearfix">
                             <div class="hm-index-title">
                         </c:if>
-                        <a href="article/getArticle.do?articleId=${article.articleId}">
+                        <a href="${pageContext.request.contextPath}/article/getArticle.do?articleId=${article.articleId}">
                                 ${article.title}
                         </a>
                         </div>
