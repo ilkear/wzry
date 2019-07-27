@@ -1,6 +1,7 @@
 package com.bbs.domain;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author : Xiaos.Lyn
@@ -30,6 +31,17 @@ public class Article {
     Integer zoneId;
     //举报状态
     Integer isReport;
+
+    //评论列表
+    List<Comment> commentList;
+
+    public List<Comment> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<Comment> commentList) {
+        this.commentList = commentList;
+    }
 
     public Integer getArticleId() {
         return articleId;
