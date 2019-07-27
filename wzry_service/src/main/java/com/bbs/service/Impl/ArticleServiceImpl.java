@@ -30,4 +30,9 @@ public class ArticleServiceImpl implements ArticleService {
 
         return articleDao.getArticle(articleId);
     }
+
+    @Override
+    public List<Article> findByPage() {
+        return articleDao.findByPage();
+    }
 }
