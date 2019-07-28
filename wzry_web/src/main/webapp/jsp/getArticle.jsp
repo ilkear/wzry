@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,8 +18,7 @@
 
 
 <!-- 头部 -->
-<jsp:include page="common/header.jsp" />
-
+<jsp:include page="common/header.jsp"/>
 
 
 <div class="hm-header"></div>
@@ -93,13 +92,12 @@
                 </li>
 
 
-
-
                 <c:forEach items="${article.commentList}" var="comm">
                     <!-- 评论部分,一楼及以后 -->
                     <li class="floor clearfix">
                         <div class="floorer-info l">
-                            <div class="floorer-photo"><img src="${pageContext.request.contextPath}/images/default.png"/></div>
+                            <div class="floorer-photo"><img
+                                    src="${pageContext.request.contextPath}/images/default.png"/></div>
                             <div class="floorer-name">${comm.commentUserName}</div>
                         </div>
                         <div class="floor-con l">
@@ -117,10 +115,11 @@
                                             <!-- 回复部分,楼中楼 -->
                                             <li class="clearfix">
                                                 <div class="floor-ans-pho l">
-                                                    <img src="${pageContext.request.contextPath}/images/default.png"/></div>
+                                                    <img src="${pageContext.request.contextPath}/images/default.png"/>
+                                                </div>
                                                 <div class="floor-ans-con l">
                                                     <span class="name">${reply.replyUserName}</span>：
-                                                    ${reply.replyContent}
+                                                        ${reply.replyContent}
                                                     <span class="ans-time">${reply.replyTime}</span>
                                                 </div>
                                             </li>
@@ -128,7 +127,7 @@
                                     </ul>
                                 </div>
                                 <span class="icon-feedback">
-                                <a href="javascript:;" onclick="showDialog(1)"> <i></i> 回复</a>
+                                <a href="javascript:;" onclick="showDialog(1,${comm.commentId})"> <i></i> 回复</a>
                             </span>
                             </div>
                         </div>
@@ -141,16 +140,16 @@
         <!--发表评论-->
         <div class="detail-to-comment">
             <div class="tit"><a name="comment">发表评论</a></div>
-            <c:if test="${ sessionScope.user}">
+            <c:if test="${empty sessionScope.user}">
                 <div class="con">您没有登录论坛，请登录后再进行回复</div>
             </c:if>
             <!-- 未登录时候显示 <div class="con">您没有登录论坛，请登录后再进行回复</div>-->
-            <c:if test="${empty sessionScope.user}">
+            <c:if test="${not empty sessionScope.user}">
                 <!-- 登录后显示评论输入框-->
                 <form action="${pageContext.request.contextPath}/comment/add.do" method="post">
                     <div class="con con-loged">
                         <input type="hidden" name="articleId" value="${article.articleId}">
-                        <input type="hidden" name="commentUserName" value="lyn">
+                        <input type="hidden" name="commentUserName" value="${sessionScope.user.userName}">
                         <div class="con-t">
                             <textarea id="content" name="commentContent" placeholder="请在此输入您要回复的信息"></textarea>
                         </div>
@@ -167,14 +166,12 @@
 </div>
 
 
-
 <!-- 底部 -->
 <jsp:include page="common/footer.jsp"/>
 
 
-
 <!-- 回复弹出框 -->
-<form action="" method="post">
+<form action="${pageContext.request.contextPath}/reply/add.do" method="post" class="pop-box">
     <div class="pop-box ft-box">
         <div class="mask"></div>
         <div class="win">
@@ -190,13 +187,13 @@
             <div class="win_ft">
                 <div class="win_ft_in">
                     <input type="submit" class="btn" value="回复"/>
-					<input type="hidden" id="commentId" name="commentId"/>
+                    <input type="hidden" id="replyUsername" name="replyUserName" value="${sessionScope.user.userName}"/>
+                    <input type="hidden" id="commentId" name="commentId"/>
                 </div>
             </div>
         </div>
     </div>
 </form>
-
 
 
 <div class="fixedBar" id="j_fixedBar">
@@ -208,17 +205,16 @@
 </body>
 
 <script type="text/javascript">
-//弹出回复框
-function showDialog(num, commentId) {
-	var loginUser = "${loginUser}";
-	if(!loginUser){
-		alert("请登录");
-		return;
-	}
-	$("#commentId").val(commentId);
-    $('.pop-box').css('display', 'block');
-    $("#floorSpan").html(num);
-}
+    //弹出回复框
+    function showDialog(num, commentId) {
+        if (${empty sessionScope.user}) {
+            alert("请登录");
+            return;
+        }
+        $("#commentId").val(commentId);
+        $('.pop-box').css('display', 'block');
+        $("#floorSpan").html(num);
+    }
 
 </script>
 </html>
