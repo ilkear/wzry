@@ -41,10 +41,10 @@
                 </p>
             </div>
             <div class="search-box l">
-                <form action="${pageContext.request.contextPath}/article//getArticleList.do" method="post">
-                    <input type="text" class="txt l" name="PrimryKey" placeholder="请输入关键字" >
-                    <input type="hidden" class="txt" name="zoneid" value="${zoneid}">
-                    <input type="button" value="搜索" class="btn l"/>
+                <form action="${pageContext.request.contextPath}/article/findAll.do" method="post">
+                    <input type="text" class="txt l" name="PrimayKey" placeholder="请输入关键字" >
+                    <input type="hidden" class="txt" name="zoneId" value="${zoneId}">
+                    <input type="submit" value="搜索" class="btn l"/>
                 </form>
             </div>
         </div>

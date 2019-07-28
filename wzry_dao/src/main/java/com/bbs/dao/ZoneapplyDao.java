@@ -1,6 +1,7 @@
 package com.bbs.dao;
 
 
+import com.bbs.domain.Article;
 import com.bbs.domain.Zone;
 import com.bbs.domain.Zoneapply;
 import org.apache.ibatis.annotations.Insert;
@@ -34,4 +35,8 @@ public interface ZoneapplyDao {
     public List<Zone> findAll() throws Exception;
     @Insert("insert into `bbs_zone_table`(zoneName,isDef)ValUES(#{zoneName},2)")
     void  saveZone(Zone zone);
+
+
+    @Select("select * from bbs_article_table where title like #{title} && zoneId=#{zoneId}")
+    List<Article> finByName(@Param("title") String title,@Param("zoneId") int zoneid) throws Exception;
 }

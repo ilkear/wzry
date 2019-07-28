@@ -41,4 +41,5 @@ public interface ArticleService {
      * @return
      */
     Integer findTodayCount(String date);
+
 }

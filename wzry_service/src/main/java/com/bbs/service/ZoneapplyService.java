@@ -1,6 +1,7 @@
 package com.bbs.service;
 
 
+import com.bbs.domain.Article;
 import com.bbs.domain.Zone;
 import com.bbs.domain.Zoneapply;
 
@@ -30,4 +31,6 @@ public interface ZoneapplyService {
 
 
     void saveZone(Zone zone) throws Exception;
+
+    List<Article> findPrimaryKey(String title, int zoneid) throws Exception;
 }

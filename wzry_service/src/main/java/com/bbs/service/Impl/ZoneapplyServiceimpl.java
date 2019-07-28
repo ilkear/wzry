@@ -1,6 +1,7 @@
 package com.bbs.service.Impl;
 
 import com.bbs.dao.ZoneapplyDao;
+import com.bbs.domain.Article;
 import com.bbs.domain.Zone;
 import com.bbs.domain.Zoneapply;
 import com.bbs.service.ZoneapplyService;
@@ -50,6 +51,11 @@ public class ZoneapplyServiceimpl implements ZoneapplyService  {
     @Override
     public void saveZone(Zone zone) throws Exception {
         zoneapplyDao.saveZone(zone);
+    }
+
+    @Override
+    public List<Article> findPrimaryKey(String title, int zoneId) throws Exception {
+        return zoneapplyDao.finByName(title,zoneId);
     }
 
 

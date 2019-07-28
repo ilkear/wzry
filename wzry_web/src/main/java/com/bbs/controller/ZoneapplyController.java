@@ -22,7 +22,6 @@ import java.util.List;
 public class ZoneapplyController {
 
 
-
     @Autowired
     private ZoneapplyService zoneapplyService;
 
@@ -30,13 +29,9 @@ public class ZoneapplyController {
     //新增版块
     @RequestMapping("/saveZoneapply.do")
     public String save(Zoneapply zoneapply) throws Exception {
-
         zoneapplyService.save(zoneapply);
-
-
         return "redirect:saveZoneapply.do";
     }
-
 
 
 }
