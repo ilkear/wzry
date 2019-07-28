@@ -21,9 +21,24 @@ public interface ArticleService {
      * @return
      */
     public Article getArticle(Integer articleId);
+
+
     /**
-     * 查询贴
+     * 查询帖
      * @return
      */
     public List<Article> findByPage();
+
+    /**
+     * 查询帖子总数
+     * @return
+     */
+    Integer findArticleCount();
+
+    /**
+     * 查询今日发表贴子
+     * @param date
+     * @return
+     */
+    Integer findTodayCount(String date);
 }

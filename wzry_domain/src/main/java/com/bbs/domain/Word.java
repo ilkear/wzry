@@ -53,9 +53,9 @@ public class Word {
     public String getStatusUse() {
         //操作(0 启用 1 未启用)
         if(status==0){
-            statusUse="启用";
-        }else if(status==1){
             statusUse="停用";
+        }else if(status==1){
+            statusUse="启用";
         }
         return statusUse;
     }

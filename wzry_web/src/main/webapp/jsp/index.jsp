@@ -12,10 +12,40 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/hm-bbs.js"></script>
 </head>
+<%--今日贴数,总贴数--%>
+
+<script>
+
+
+</script>
+
 <body>
 
+<script>
+    $(function () {
+        var user = null;
+        var userName = "admin";
+        $(".zone_id").val(1);
+        $(".user_name").val(userName);
+
+        $("#ft").click(function () {
+            if(user==null){
+                //可以发帖
+                // alert($("#formx").serialize())
+                $.post("/comment/posted.do",$("#formx").serialize())
+                location.href="${pageContext.request.contextPath}/index.jsp"
+            }else {
+                //不可以发帖
+                alert("未登入，请先登入")
+            }
+        })
+
+    })
+
+</script>
 <!-- 头部 -->
 <jsp:include page="common/header.jsp"/>
+
 
 
 <!-- 主体部分 -->
@@ -33,8 +63,8 @@
             <div class="hm-bbs-info-in l" style="margin-left:30px;">
                 <div class="t clearfix"><h2 class="l">王者荣耀</h2></div>
                 <p>
-                    <span>今日帖子<strong>99</strong></span>
-                    <span>全部帖子<strong>250</strong></span>
+                    <span id="todayCount">今日帖数:${today}</span>
+                    <span id="totalCount">总帖数:${total}</span>
                 </p>
             </div>
             <div class="search-box l">
@@ -105,7 +135,7 @@
                                 class="post-time">2017-05-24 09:10:00</span>
                         </div>
                         <div class="hm-index-fun r">
-                            <span class="icon-like"><i></i>3</span>
+                            <span class="icon-like"><i></i>${article.upvotecount}</span>
                             <span class="icon-talk"><i></i>10</span>
                         </div>
                     </li>
@@ -150,25 +180,28 @@
     <a href="#" class="goTop"><i></i><span>返回<br/>顶部</span></a>
 </div>
 
+
 <!-- 发帖弹出框 -->
-<form action="" method="post">
+<form   method="post" id="formx">
     <div class="pop-box ft-box">
         <div class="mask"></div>
         <div class="win">
-            <div class="win_hd">
-                <h4 class="l">主题帖</h4><span class="close r">&times;</span>
-            </div>
-            <div class="win_bd">
-                <div class="win_bd_t">
-                    <input type="text" id="title" name="title" placeholder="帖子标题"/>
+                <div class="win_hd">
+                    <h4 class="l">主题帖</h4><span class="close r">&times;</span>
                 </div>
-                <div class="win_bd_b">
-                    <textarea id="content" name="content" placeholder="正文"></textarea>
+                <div class="win_bd">
+                    <div class="win_bd_t">
+                        <input type="text" id="title" name="title" placeholder="帖子标题"/>
+                    </div>
+                    <div class="win_bd_b">
+                        <textarea id="content" name="content" placeholder="正文"></textarea>
+                    </div>
+                    <input type="hidden" name="senderName" class="user_name">
+                    <input type="hidden" name="zoneId" class="zone_id">
                 </div>
-            </div>
-            <div class="win_ft">
+                <div class="win_ft">
                 <div class="win_ft_in">
-                    <input type="submit" class="btn" value="发表"/>
+                    <input type="submit" class="btn" value="发表" id="ft"/>
                 </div>
             </div>
         </div>
