@@ -30,7 +30,7 @@ public interface ZoneapplyDao {
     void upStatus(@Param("status") int status, @Param("applyZoneId") int applyZoneId);
 
 
-    @Select("select * from bbs_zoneapply_table")
+    @Select("select * from bbs_zone_table")
     public List<Zone> findAll() throws Exception;
     @Insert("insert into `bbs_zone_table`(zoneName,isDef)ValUES(#{zoneName},2)")
     void  saveZone(Zone zone);
