@@ -1,8 +1,13 @@
 package com.bbs.controller;
 
 import com.bbs.domain.Article;
+import com.bbs.domain.Upvote;
+import com.bbs.domain.User;
+import com.bbs.domain.Zone;
 import com.bbs.service.ArticleService;
 import com.bbs.service.Impl.ArticleServiceImpl;
+import com.bbs.service.UserService;
+import com.bbs.service.ZoneapplyService;
 import com.bbs.utils.DateUtils;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +29,18 @@ public class ArticleController {
 
     @Autowired
     ArticleService articleService;
+
+    @Autowired
+    UserService userService;
+    @Autowired
+    ZoneapplyService zoneapplyService;
+
     /**
      * 返回首页
      * @return
      */
     @RequestMapping("/getArticleList.do")
-    public ModelAndView getArticleList(){
+    public ModelAndView getArticleList() throws Exception{
         ModelAndView mv = new ModelAndView();
         //获取帖子列表
         List<Article> list = articleService.getArticleList();
@@ -43,7 +54,20 @@ public class ArticleController {
         mv.addObject("total",total);
         mv.addObject("list",list);
 
+        //版块遍历
+         List<Zone> list2=zoneapplyService.findAll();
+         mv.addObject("zoneList",list2);
+
+
+        //查询在线用户信息
+
+        List<User> list1=userService.findOnlineUser();
+        mv.addObject("UserList",list1);
         mv.setViewName("index");
+
+        //查询在线人数
+        int count = userService.countStatus();
+        mv.addObject("CountUser", count);
         return mv;
     }
 

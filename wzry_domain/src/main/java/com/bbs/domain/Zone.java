@@ -1,9 +1,9 @@
 package com.bbs.domain;
 
 public class Zone {
-    //交流区编号
+    //版块编号
     Integer zoneId;
-    //交流区名字
+    //版块名字
     String zoneName;
     //'是否默认，1代表默认，2代表非默认',
     Integer isDef;

@@ -51,18 +51,14 @@
 
         <!-- 导航 -->
         <ul class="hm-bbs-nav border-lrb clearfix">
-            <li class="current">
-                <a href="#"><em></em>综合交流区</a>
-            </li>
-            <li>
-                <a href="#"><em></em>BUG反馈区</a>
-            </li>
-            <li>
-                <a href="#"><em></em>新闻公告区</a>
-            </li>
-            <li>
-                <a href="#"><em></em>活动专区</a>
-            </li>
+            <c:forEach items="${zoneList}" var="product">
+                <li class="current">
+
+                    <a href="#${product.zoneId}">${product.zoneName}</a>
+
+
+                </li>
+            </c:forEach>
         </ul>
 
 
@@ -122,17 +118,18 @@
             <div class="aside l">
                 <div class="aside-box">
                     <h3 class="t">
-                        <a href="javascript:;">在线用户(2)</a>
+
+                        <a href="javascript:;">用户在线（${CountUser}）</a>
+
                     </h3>
                     <ul class="b clearfix">
-                        <li>
-                            <div><img src="images/default.png" height="55"/></div>
-                            <p>Mr.King</p>
-                        </li>
-                        <li>
-                            <div><img src="images/default.png" height="55"/></div>
-                            <p>疯子</p>
-                        </li>
+
+                        <c:forEach var="product" items="${UserList}">
+                            <div><img src="/${product.picUrl}" height="55"/></div>
+                            <p>${product.userName}</p>
+
+                        </c:forEach>
+
                     </ul>
                 </div>
             </div>
