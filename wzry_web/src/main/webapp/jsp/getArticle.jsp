@@ -96,8 +96,7 @@
                     <!-- 评论部分,一楼及以后 -->
                     <li class="floor clearfix">
                         <div class="floorer-info l">
-                            <div class="floorer-photo"><img
-                                    src="${pageContext.request.contextPath}/images/default.png"/></div>
+                            <div class="floorer-photo"><img src="${pageContext.request.contextPath}/images/default.png"/></div>
                             <div class="floorer-name">${comm.commentUserName}</div>
                         </div>
                         <div class="floor-con l">
@@ -149,7 +148,7 @@
                 <form action="${pageContext.request.contextPath}/comment/add.do" method="post">
                     <div class="con con-loged">
                         <input type="hidden" name="articleId" value="${article.articleId}">
-                        <input type="hidden" name="commentUserName" value="${sessionScope.user.userName}">
+                        <input type="hidden" name="commentUserName" value="lyn">
                         <div class="con-t">
                             <textarea id="content" name="commentContent" placeholder="请在此输入您要回复的信息"></textarea>
                         </div>
@@ -194,6 +193,7 @@
         </div>
     </div>
 </form>
+
 
 
 <div class="fixedBar" id="j_fixedBar">

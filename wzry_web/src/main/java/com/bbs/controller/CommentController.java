@@ -31,14 +31,13 @@ public class CommentController {
     @RequestMapping("/posted.do")
     public String posted(Article article){
         commentService.addPosted(article);
-        return "redirct:index.jsp";
+        return "redirect:/index.jsp";
     }
 
     @RequestMapping("/add.do")
     public String add(Comment c) {
         c.setCommentTime(new Date());
         commentService.addComment(c);
-
         return "redirect:/index.jsp";
     }
 }
