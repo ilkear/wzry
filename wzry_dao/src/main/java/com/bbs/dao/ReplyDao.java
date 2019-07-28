@@ -1,5 +1,6 @@
 package com.bbs.dao;
 
+import com.bbs.domain.Comment;
 import com.bbs.domain.Reply;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
@@ -19,4 +20,7 @@ public interface ReplyDao {
 
     @Insert("INSERT INTO `bbs_reply_table` VALUES(NULL,#{replyContent},#{replyTime},#{replyUserName},#{commentId})")
     void addReply(Reply r);
+
+    @Select("SELECT articleId FROM bbs_comment_table WHERE commentId=#{commentId}")
+    Integer getArticleIdByCommentId(Integer commentId);
 }

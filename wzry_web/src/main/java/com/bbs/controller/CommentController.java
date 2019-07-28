@@ -36,8 +36,9 @@ public class CommentController {
 
     @RequestMapping("/add.do")
     public String add(Comment c) {
+
         c.setCommentTime(new Date());
         commentService.addComment(c);
-        return "redirect:/index.jsp";
+        return "redirect:/article/getArticle.do?articleId="+c.getArticleId();
     }
 }
