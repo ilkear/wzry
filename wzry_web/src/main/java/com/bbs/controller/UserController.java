@@ -5,10 +5,9 @@ import com.bbs.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 
 /**
  * @author : Xiaos.Lyn
@@ -26,9 +25,21 @@ public class UserController {
 
         User u = userService.findUserByUsername(user.getUserName());
         if (u != null && u.getUserPass().equals(user.getUserPass())) {
+
+            u.setLastLoginTime(new Date());
+            //保存上次登录时间
+            userService.login(u);
             session.setAttribute("user",u);
         }
+
         return "redirect:/index.jsp";
     }
 
+    @RequestMapping("/logout.do")
+    public String logout(HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        userService.logout(user);
+        session.invalidate();
+        return "redirect:/index.jsp";
+    }
 }

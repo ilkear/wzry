@@ -14,41 +14,14 @@
 </head>
 <%--今日贴数,总贴数--%>
 
-<script>
-
-
-</script>
-
 <body>
 
-<script>
-    $(function () {
-        var user = null;
-        var userName = "admin";
-        $(".zone_id").val(1);
-        $(".user_name").val(userName);
 
-        $("#ft").click(function () {
-            if(user==null){
-                //可以发帖
-                // alert($("#formx").serialize())
-                $.post("/comment/posted.do",$("#formx").serialize())
-                location.href="${pageContext.request.contextPath}/index.jsp"
-            }else {
-                //不可以发帖
-                alert("未登入，请先登入")
-            }
-        })
-
-    })
-
-</script>
 <!-- 头部 -->
 <jsp:include page="common/header.jsp"/>
 
 
 
-<!-- 主体部分 -->
 <div class="hm-header"></div>
 <div class="hm-body hm-body-bgc">
     <div class="hm-inner">
@@ -176,13 +149,18 @@
 
 <!-- 右边发帖，回顶部 -->
 <div class="fixedBar" id="j_fixedBar">
-    <a id="newTopicBtn" href="jvascript:a;" class="newTopic"><span></span>发帖</a>
+    <c:if test="${empty user}">
+        <a id="newTopicBtn2" onclick="alert('未登入请先登入！！')" class="newTopic"><span></span>发帖</a>
+    </c:if>
+    <c:if test="${!empty user}">
+        <a id="newTopicBtn" href="javascript:a;" class="newTopic"><span></span>发帖</a>
+    </c:if>
     <a href="#" class="goTop"><i></i><span>返回<br/>顶部</span></a>
 </div>
 
 
 <!-- 发帖弹出框 -->
-<form   method="post" id="formx">
+<form action="/comment/posted.do"  method="post" id="formx">
     <div class="pop-box ft-box">
         <div class="mask"></div>
         <div class="win">
@@ -196,8 +174,8 @@
                     <div class="win_bd_b">
                         <textarea id="content" name="content" placeholder="正文"></textarea>
                     </div>
-                    <input type="hidden" name="senderName" class="user_name">
-                    <input type="hidden" name="zoneId" class="zone_id">
+                    <input type="hidden" name="senderName" class="user_name" value="${sessionScope.user.userName}">
+                    <input type="hidden" name="zoneId" class="zone_id" value="1">
                 </div>
                 <div class="win_ft">
                 <div class="win_ft_in">

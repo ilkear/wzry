@@ -23,7 +23,6 @@
 </style>
 
 <script>
-
     $(function () {
         var sun = ${publish}
         $(".btn").click(function (){
