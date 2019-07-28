@@ -24,6 +24,7 @@ public class ReplyController {
         r.setReplyTime(new Date());
         replyService.addReply(r);
 
-        return "redirect:/index.jsp";
+        return "redirect:/article/getArticle.do?articleId="
+                +replyService.getArticleIdByCommentId(r.getCommentId());
     }
 }

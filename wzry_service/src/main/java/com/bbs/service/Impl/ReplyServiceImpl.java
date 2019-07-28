@@ -1,6 +1,7 @@
 package com.bbs.service.Impl;
 
 import com.bbs.dao.ReplyDao;
+import com.bbs.domain.Comment;
 import com.bbs.domain.Reply;
 import com.bbs.service.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,5 +19,10 @@ public class ReplyServiceImpl implements ReplyService {
     @Override
     public void addReply(Reply r) {
         replyDao.addReply(r);
+    }
+
+    @Override
+    public Integer getArticleIdByCommentId(Integer commentId) {
+        return replyDao.getArticleIdByCommentId(commentId);
     }
 }
