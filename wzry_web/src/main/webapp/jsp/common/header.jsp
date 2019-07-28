@@ -32,7 +32,7 @@
                 </div>
             </c:if>
             <c:if test="${not empty sessionScope.user}">
-                欢迎您，${sessionScope.user.userName}
+                欢迎您，<a href="/user/userInfo.do">${sessionScope.user.userName}</a>
                 <a href="${pageContext.request.contextPath}/user/logout.do">退出</a>
             </c:if>
         </div>

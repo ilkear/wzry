@@ -17,7 +17,6 @@
 </head>
 <body>
 
-
 <!-- 头部 -->
 <jsp:include page="common/header.jsp" />
 
@@ -54,8 +53,8 @@
             <!--左侧用户名，头像-->
             <div class="user-info-l l">
                 <div class="user-info-l-t">
-                    <img src="images/default.png"/>
-                    <div class="username">张无忌</div>
+                    <img src="../${user.picUrl}"/>
+                    <div class="username">${user.userName}</div>
                 </div>
                 <ul class="user-info-l-b">
                     <li class="cur"><i class="info-icon"></i>我的资料</li>
@@ -69,20 +68,24 @@
                 <ul class="clearfix hd">
                     <li class="cur"><a href="/jsp/userInfo.jsp">个人信息</a></li>
                     <li><a href="/jsp/userPwd.jsp">修改密码</a></li>
-                    <li><a href="/comment/publish.do?userName='admin'">申请高级权限</a></li>
-                    <li><a href="/jsp/userPlate.jsp">板块申请</a></li>
+                    <c:if test="${user.role==1}">
+                        <li><a href="/comment/publish.do?userName='${user.userName}'">申请高级权限</a></li>
+                    </c:if>
+                    <c:if test="${user.role==2}">
+                        <li><a href="/jsp/userPlate.jsp">板块申请</a></li>
+                    </c:if>
                 </ul>
 
 
-                <form action="#" method="post" enctype="multipart/form-data">
+                <form action="/user/updateUserInfo.do" method="post" enctype="multipart/form-data">
                     <ul class="bd">
                         <li class="clearfix">
                             <div class="info-l"><i class="red">*</i>用户名：</div>
-                            <div class="info-r"><input type="text" class="txt" value="" readonly="readonly"/></div>
+                            <div class="info-r"><input type="text" name="userName" class="txt" readonly="readonly" value="${user.userName}"/></div>
                         </li>
                         <li class="clearfix">
                             <div class="info-l">邮箱地址：</div>
-                            <div class="info-r"><input type="text" name="email" class="txt" value=""/></div>
+                            <div class="info-r"><input id="email" type="text" name="email" class="txt" value=""/></div>
                         </li>
                         <li class="clearfix">
                             <div class="info-l">上传头像：</div>
@@ -92,7 +95,7 @@
                             <div class="info-l"></div>
                             <div class="info-r">
                                 <input type="submit" class="btn" value="保存"/>
-                                <span style="color:red;">修改成功！</span>
+                                <%--<span style="color:red;">修改成功！</span>--%>
                             </div>
                         </li>
                     </ul>

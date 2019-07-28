@@ -5,7 +5,6 @@ import com.bbs.domain.User;
 import com.bbs.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 /**
@@ -33,11 +32,31 @@ public class UserServiceImpl implements UserService {
         return userDao.findUserByUsername(name);
     }
 
+    /**
+     * 修改用户头像
+     * @param picurl  上传的头像路径
+     * @param userName 用户的name
+     */
+    @Override
+    public void savePicUrl(String picurl, String userName) {
+        userDao.savePicUrl(picurl,userName);
+    }
+
+    /**
+     * 修改用户email
+     * @param userName
+     * @param email
+     * @return
+     */
+    @Override
+    public Long saveEmail(String userName, String email) {
+        return userDao.saveEmail(userName,email);
+    }
+
     @Override
     public int countStatus() {
         return userDao.CountUser();
     }
-
 
 
 

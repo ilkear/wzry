@@ -69,8 +69,8 @@
             <div class="user-info-t" style="height:20px;"></div>
             <div class="user-info-l l">
                 <div class="user-info-l-t">
-                    <img src="images/default.png" alt=""/>
-                    <div class="username">张无忌</div>
+                    <img src="../${user.picUrl}"/>
+                    <div class="username">${user.userName}</div>
                 </div>
                 <ul class="user-info-l-b">
                     <li><i class="info-icon"></i>我的资料</li>
@@ -84,8 +84,12 @@
                 <ul class="clearfix hd">
                     <li><a href="/jsp/userInfo.jsp">个人信息</a></li>
                     <li><a href="/jsp/userPwd.jsp">修改密码</a></li>
-                    <li class="cur"><a href="/comment/publish.do?userName='admin'">申请高级权限</a></li>
-                    <li><a href="/jsp/userPlate.jsp">板块申请</a></li>
+                    <c:if test="${user.role==1}">
+                        <li class="cur"><a href="/comment/publish.do?userName='${user.userName}'">申请高级权限</a></li>
+                    </c:if>
+                    <c:if test="${user.role==2}">
+                        <li><a href="/jsp/userPlate.jsp">板块申请</a></li>
+                    </c:if>
                 </ul>
                 <form action="#" method="post">
                         <ul>

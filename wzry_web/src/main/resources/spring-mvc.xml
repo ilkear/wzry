@@ -31,6 +31,7 @@
     <mvc:resources location="/images/" mapping="/images/**" />
     <mvc:resources location="/js" mapping="/js/**" />
     <mvc:resources location="/html/" mapping="/html/**" />
+    <mvc:resources location="/uploads/" mapping="/uploads/**" />
 
     <!-- 开启对SpringMVC注解的支持 -->
     <mvc:annotation-driven />
