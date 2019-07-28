@@ -23,7 +23,7 @@ import java.util.List;
 public class ArticleController {
 
     @Autowired
-    ArticleService service;
+    ArticleService articleService;
     /**
      * 返回首页
      * @return
@@ -31,17 +31,18 @@ public class ArticleController {
     @RequestMapping("/getArticleList.do")
     public ModelAndView getArticleList(){
         ModelAndView mv = new ModelAndView();
-        List<Article> list = service.getArticleList();
-        Integer total = service.findArticleCount();
-
+        //获取帖子列表
+        List<Article> list = articleService.getArticleList();
+        //获取总贴数
+        Integer total = articleService.findArticleCount();
+        //获取今日贴数
         String time = DateUtils.date2String(new Date(), "yyyy-MM-dd");
-
-        Integer todayCount = service.findTodayCount(time);
+        Integer todayCount = articleService.findTodayCount(time);
 
         mv.addObject("today",todayCount);
-
         mv.addObject("total",total);
         mv.addObject("list",list);
+
         mv.setViewName("index");
         return mv;
     }
@@ -53,7 +54,7 @@ public class ArticleController {
     @RequestMapping("/getArticle.do")
     public ModelAndView getArticle(Integer articleId){
         ModelAndView mv = new ModelAndView();
-        Article article = service.getArticle(articleId);
+        Article article = articleService.getArticle(articleId);
         mv.setViewName("getArticle");
         mv.addObject("article",article);
         return mv;
