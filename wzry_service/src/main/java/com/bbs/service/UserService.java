@@ -4,7 +4,7 @@ import com.bbs.domain.User;
 
 /**
  * @author : Xiaos.Lyn
- * @date : 2019/7/27
+ * @date : 2019/7/28
  */
 public interface UserService {
 
@@ -13,4 +13,8 @@ public interface UserService {
      * @return
      */
     User findUserByUsername(String name);
+
+    void login(User user);
+
+    void logout(User user);
 }
