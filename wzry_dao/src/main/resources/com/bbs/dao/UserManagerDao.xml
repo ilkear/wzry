@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+    <mapper namespace="com.bbs.dao.UserManagerDao">
+
+
+    <select id="findByCondition" resultType="userInfo" parameterType="hashMap">
+        select * from bbs_user_table where 1=1
+
+            <if test="userName != null and userName !=''">
+                and username like #{userName}
+            </if>
+            <if test="role != null and role != ''" >
+                and role like #{role}
+            </if>
+
+    </select>
+    </mapper>

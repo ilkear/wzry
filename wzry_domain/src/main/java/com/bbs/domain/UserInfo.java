@@ -1,8 +1,9 @@
 package com.bbs.domain;
 
-import java.util.Date;
 
-public class User {
+import java.util.Date;
+import com.bbs.utils.DateUtils;
+public class UserInfo {
     //用户ID
     Integer userId;
     //用户名
@@ -15,16 +16,84 @@ public class User {
     String picUrl;
     //1代表普通用户；2代表高级用户，3代表超级管理员
     Integer role;
+
     //最后登录时间
     Date lastLoginTime;
+
    //登录状态，0代表未登录，1代表已登录
     Integer loginStatus;
+
     //发言状态，0代表未屏蔽发言（默认），1代表已屏蔽发言
     Integer talkStatus;
+
    //申请升级(0-未申请,1-已申请)
     Integer isupdating;
    //申请升级审核状态(0-未处理,1-已处理)
     Integer updateStatus;
+
+    String talkStatusStr;
+
+    String lastLoginTimeStr;
+    String roleStr;
+    String isupdatingStr;
+
+    public String getIsupdatingStr() {
+        if (isupdating == 0){
+            isupdatingStr ="未处理";
+        }
+        if (isupdating == 1){
+            isupdatingStr ="已处理";
+        }
+        return isupdatingStr;
+    }
+
+    public void setIsupdatingStr(String isupdatingStr) {
+        this.isupdatingStr = isupdatingStr;
+    }
+
+    public String getRoleStr() {
+        //1代表普通用户；2代表高级用户，3代表超级管理员
+        if (role == 1){
+            roleStr ="普通用户";
+        }
+        if (role == 2){
+            roleStr ="高级用户";
+        }
+        if (role == 3){
+            roleStr ="超级管理员";
+        }
+        return roleStr;
+    }
+
+    public void setRoleStr(String roleStr) {
+        this.roleStr = roleStr;
+    }
+
+    public String getLastLoginTimeStr() {
+        if (lastLoginTime != null){
+            lastLoginTimeStr = DateUtils.date2String(lastLoginTime,"yyyy-MM-dd HH:mm:ss");
+        }
+        return lastLoginTimeStr;
+    }
+
+    public void setLastLoginTimeStr(String lastLoginTimeStr) {
+        this.lastLoginTimeStr = lastLoginTimeStr;
+    }
+
+    public String getTalkStatusStr() {
+        //发言状态，0代表未屏蔽发言（默认），1代表已屏蔽发言
+        if (talkStatus == 1){
+            talkStatusStr ="是";
+        }
+        if (talkStatus == 0){
+            talkStatusStr ="否";
+        }
+        return talkStatusStr;
+    }
+
+    public void setTalkStatusStr(String talkStatusStr) {
+        this.talkStatusStr = talkStatusStr;
+    }
 
     public Integer getUserId() {
         return userId;
@@ -67,7 +136,10 @@ public class User {
     }
 
     public Integer getRole() {
-        return role;
+
+            return role;
+
+
     }
 
     public void setRole(Integer role) {
@@ -91,6 +163,7 @@ public class User {
     }
 
     public Integer getTalkStatus() {
+
         return talkStatus;
     }
 
