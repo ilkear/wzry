@@ -41,8 +41,9 @@
                 </p>
             </div>
             <div class="search-box l">
-                <form action="javascript:;">
-                    <input type="text" class="txt l" placeholder="请输入关键字">
+                <form action="${pageContext.request.contextPath}/article//getArticleList.do" method="post">
+                    <input type="text" class="txt l" name="PrimryKey" placeholder="请输入关键字" >
+                    <input type="hidden" class="txt" name="zoneid" value="${zoneid}">
                     <input type="button" value="搜索" class="btn l"/>
                 </form>
             </div>
@@ -53,7 +54,9 @@
         <ul class="hm-bbs-nav border-lrb clearfix">
             <c:forEach items="${zoneList}" var="product">
                 <li class="current">
-
+                    <script>
+                        $("#zone_id").val(${product.zoneId})
+                    </script>
                     <a href="#${product.zoneId}">${product.zoneName}</a>
 
 
@@ -172,7 +175,7 @@
                         <textarea id="content" name="content" placeholder="正文"></textarea>
                     </div>
                     <input type="hidden" name="senderName" class="user_name" value="${sessionScope.user.userName}">
-                    <input type="hidden" name="zoneId" class="zone_id" value="1">
+                    <input type="hidden" name="zoneId" class="zone_id">
                 </div>
                 <div class="win_ft">
                 <div class="win_ft_in">
