@@ -119,10 +119,10 @@ public class UserController {
             if (count >= 1) {
                 request.setAttribute("emailmsg", "修改成功!");
             }
-
+            return "redirect:/jsp/userInfo.jsp";
         }
 
-        return "forward:/jsp/userInfo.jsp";
+
     }
 
     @RequestMapping("/userPwd.do")
