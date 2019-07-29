@@ -12,4 +12,11 @@
   <artifactId>wzry_service</artifactId>
 
 
+  <dependencies>
+    <dependency>
+      <groupId>cn.makedream</groupId>
+      <artifactId>wzry_dao</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
 </project>
